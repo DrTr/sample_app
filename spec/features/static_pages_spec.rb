@@ -12,7 +12,7 @@ describe "Static pages" do
 
     it "should have the title 'Home'" do
       visit '/static_pages/home'
-      page.should have_title("#{base_title} | Home")
+      page.should have_title("#{base_title}")
     end
   end
 
