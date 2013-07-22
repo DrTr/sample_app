@@ -7,5 +7,5 @@ class User < ActiveRecord::Base
                    uniqueness: { case_sensivite: false }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true 
-  before_save { |user| user.email = email.downcase }
+  before_save { email.downcase! }
 end
