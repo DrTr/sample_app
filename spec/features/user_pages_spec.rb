@@ -16,6 +16,12 @@ describe "User pages" do
       it "should not create a user" do
         expect { click_button submit }.not_to change(User, :count)
       end
+      
+      describe "should have errors" do
+        before { click_button submit }
+        it { should have_selector('div.alert.alert-error',
+                                   text: 'The form contains') }
+      end
     end
 
     describe "with valid information" do
@@ -29,6 +35,11 @@ describe "User pages" do
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
+      
+      describe "after saving the user" do
+        before { click_button submit }
+        it { should have_link('Sign out') }
+      end
     end
   end
   
@@ -39,4 +50,5 @@ describe "User pages" do
       it { should have_selector('h1',    text: user.name) }
       it { should have_title  user.name }
   end
+  
 end

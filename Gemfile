@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'protected_attributes'
+gem 'haml'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
