@@ -18,12 +18,12 @@ SampleApp::Application.routes.draw do
   get '/signup',  to: 'users#new'
   get '/signin',  to: 'sessions#new'
   get '/signout', to: 'sessions#destroy'
-  
+
+
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :users
+  resources :users, key: :name
   resources :sessions, only: [:new, :create, :destroy]
-
   # Example resource route with options:
   #   resources :products do
   #     member do
