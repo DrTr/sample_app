@@ -24,6 +24,7 @@ SampleApp::Application.routes.draw do
   #   resources :products
   resources :users, key: :name
   resources :sessions, only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
   # Example resource route with options:
   #   resources :products do
   #     member do
