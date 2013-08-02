@@ -1,0 +1,7 @@
+.content= object.content
+.timestamp
+  Posted
+  = time_ago_in_words( object.created_at ) + ' ago.'
+  - if current_user? object.user
+    = link_to "delete", object, method: :delete,          |
+      data: {confirm: "You sure?"}, title: object.content |

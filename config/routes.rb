@@ -22,9 +22,15 @@ SampleApp::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :users, key: :name
+  resources :users do
+    member do
+      get :following, :followers
+    end  
+  end
+  
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
   # Example resource route with options:
   #   resources :products do
   #     member do
